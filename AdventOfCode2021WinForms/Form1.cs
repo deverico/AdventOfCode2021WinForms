@@ -1,4 +1,5 @@
 ﻿using AdventOfCode2021WinForms.Day1;
+using AdventOfCode2021WinForms.Day2;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,46 +18,44 @@ namespace AdventOfCode2021WinForms
         public Form1()
         {
             InitializeComponent();
+            this.daysListBox.SelectedIndex = 1;
+            this.simpleDataRadioButton.Checked = true;
+            //this.fullDataRadioButton.Checked = true;
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //int[] input =
-            //{
-            //    199,
-            //    200,
-            //    208,
-            //    210,
-            //    200,
-            //    207,
-            //    240,
-            //    269,
-            //    260,
-            //    263
-            //};
+            //string[] input = LoadInput(this.daysListBox.SelectedIndex+1);
+            //Day1Solver d1 = new Day1Solver(Log);
+            //d1.Solve(input);
 
-            int[] input = LoadInput();
-
-            Day1Solver d1 = new Day1Solver(Log);
-            d1.Solve(input);
+            string[] input2 = LoadInput(this.daysListBox.SelectedIndex + 1);
+            Day2Solver d2 = new Day2Solver(Log);
+            d2.Solve(input2);
         }        
 
-        public int[] LoadInput()
+        public string[] LoadInput(int day)
         {
-            string filename = @".\data\input.txt";
+            string filename = string.Empty;
+            if (this.simpleDataRadioButton.Checked)
+            {
+                filename = $".\\data\\inputday{day}_simple.txt";
+            } else {
+                filename = $".\\data\\inputday{day}_full.txt";
+            }
             var lines = File.ReadLines(filename);
-            List<int> nums = new List<int>();
+            List<string> data = new List<string>();
 
             foreach (var line in lines)
             {
-                if(!string.IsNullOrWhiteSpace(line))
+                if (!string.IsNullOrWhiteSpace(line))
                 {
-                    nums.Add(int.Parse(line));
+                    data.Add(line);
                 }
             }
 
-            return nums.ToArray();
+            return data.ToArray();
         }
 
         public void Log(string message)

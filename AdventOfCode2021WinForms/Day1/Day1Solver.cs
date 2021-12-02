@@ -6,25 +6,22 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2021WinForms.Day1
 {
-    public class Day1Solver
+    public class Day1Solver : Solver
     {
-        Action<string> Log;
 
-        public Day1Solver(Action <string> log)
-        {
-            Log = log;     
-        }
+        public Day1Solver(Action <string> log) : base (log) { }
 
         private int WindowSize = 3;
 
-        public void Solve(int[] input)
+        public void Solve(string[] input)
         {
+            int[] parsedInput = ParseInput(input);
             List<DataItem> data = new List<DataItem>();
             int i = 1;
-            data.Add(new DataItem() { originalDepth = input[0], isFirst = true });
-            while (i < input.Length)
+            data.Add(new DataItem() { originalDepth = parsedInput[0], isFirst = true });
+            while (i < parsedInput.Length)
             {
-                var currentItem = new DataItem() { originalDepth = input[i], Previous = data[i - 1] };
+                var currentItem = new DataItem() { originalDepth = parsedInput[i], Previous = data[i - 1] };
                 data[i - 1].Next = currentItem;
                 data.Add(currentItem);
 
@@ -37,6 +34,20 @@ namespace AdventOfCode2021WinForms.Day1
 
             Log($"Answer 1: {data.Where(x => x.increase && !x.isFirst).Count()}\n");
             Log($"Answer 2: {data.Where(x => x.windowIncrease && !x.isFirst).Count()}\n");
+        }
+
+        private int[] ParseInput(string[] input)
+        {
+            List<int> nums = new List<int>();
+            foreach (var line in input)
+            {
+                if (!string.IsNullOrWhiteSpace(line))
+                {
+                    nums.Add(int.Parse(line));
+                }
+            }
+
+            return nums.ToArray();
         }
 
         public void Display(List<DataItem> data)
