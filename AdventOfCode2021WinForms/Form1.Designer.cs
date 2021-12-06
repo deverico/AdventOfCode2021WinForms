@@ -32,8 +32,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.daysListBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.simpleDataRadioButton = new System.Windows.Forms.RadioButton();
             this.fullDataRadioButton = new System.Windows.Forms.RadioButton();
+            this.simpleDataRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,18 +58,6 @@
             // daysListBox
             // 
             this.daysListBox.FormattingEnabled = true;
-            this.daysListBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11"});
             this.daysListBox.Location = new System.Drawing.Point(13, 12);
             this.daysListBox.Name = "daysListBox";
             this.daysListBox.Size = new System.Drawing.Size(120, 420);
@@ -86,17 +74,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data";
             // 
-            // simpleDataRadioButton
-            // 
-            this.simpleDataRadioButton.AutoSize = true;
-            this.simpleDataRadioButton.Location = new System.Drawing.Point(15, 19);
-            this.simpleDataRadioButton.Name = "simpleDataRadioButton";
-            this.simpleDataRadioButton.Size = new System.Drawing.Size(56, 17);
-            this.simpleDataRadioButton.TabIndex = 0;
-            this.simpleDataRadioButton.TabStop = true;
-            this.simpleDataRadioButton.Text = "Simple";
-            this.simpleDataRadioButton.UseVisualStyleBackColor = true;
-            // 
             // fullDataRadioButton
             // 
             this.fullDataRadioButton.AutoSize = true;
@@ -107,6 +84,17 @@
             this.fullDataRadioButton.TabStop = true;
             this.fullDataRadioButton.Text = "Full";
             this.fullDataRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // simpleDataRadioButton
+            // 
+            this.simpleDataRadioButton.AutoSize = true;
+            this.simpleDataRadioButton.Location = new System.Drawing.Point(15, 19);
+            this.simpleDataRadioButton.Name = "simpleDataRadioButton";
+            this.simpleDataRadioButton.Size = new System.Drawing.Size(56, 17);
+            this.simpleDataRadioButton.TabIndex = 0;
+            this.simpleDataRadioButton.TabStop = true;
+            this.simpleDataRadioButton.Text = "Simple";
+            this.simpleDataRadioButton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
