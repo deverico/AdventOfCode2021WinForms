@@ -3,6 +3,7 @@ using AdventOfCode2021WinForms.Day2;
 using AdventOfCode2021WinForms.Day3;
 using AdventOfCode2021WinForms.Day4;
 using AdventOfCode2021WinForms.Day5;
+using AdventOfCode2021WinForms.Day6;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace AdventOfCode2021WinForms
         public Form1()
         {
             InitializeComponent();
-            this.daysListBox.SelectedIndex = 4;
+            this.daysListBox.SelectedIndex = 5;
             this.simpleDataRadioButton.Checked = true;
             //this.fullDataRadioButton.Checked = true;
         }
@@ -41,10 +42,14 @@ namespace AdventOfCode2021WinForms
             //Day3Solver d3 = new Day3Solver(Log);
             //d3.Solve(input3);
 
-            string[] input5 = LoadInput(this.daysListBox.SelectedIndex + 1);
-            Day5Solver d5 = new Day5Solver(Log);
-            d5.Solve(input5);
-        }        
+            //string[] input5 = LoadInput(this.daysListBox.SelectedIndex + 1);
+            //Day5Solver d5 = new Day5Solver(Log);
+            //d5.Solve(input5);
+
+            string[] input6 = LoadInput(this.daysListBox.SelectedIndex + 1);
+            Day6Solver d6 = new Day6Solver(Log);
+            d6.Solve(input6);
+        }
 
         public string[] LoadInput(int day)
         {
