@@ -13,12 +13,8 @@ namespace AdventOfCode2021WinForms.Day5
 
         public void Solve(string[] input) {            
             Part1(input);
-
-
-            // rip
+            
             Part2(input);
-
-
         }
 
         private void Part2(string[] input)
@@ -49,8 +45,11 @@ namespace AdventOfCode2021WinForms.Day5
 
             foreach (var coord in coords)
             {
+                //LogCoord(coord);
+                // if same
                 if (coord.X1 == coord.X2)
                 {
+                    
                     var bigger = 0;
                     var smaller = 0;
                     if (coord.Y1 > coord.Y2)
@@ -65,8 +64,10 @@ namespace AdventOfCode2021WinForms.Day5
                     }
                     for (var i = smaller; i <= bigger; i++)
                     {
+                        //Log($" :: {coord.X1}, {i}");
                         grid[coord.X1][i]++;
                     }
+                    //Log("\n");
                 }
                 else if (coord.Y1 == coord.Y2)
                 {
@@ -84,55 +85,99 @@ namespace AdventOfCode2021WinForms.Day5
                     }
                     for (var i = smaller; i <= bigger; i++)
                     {
+                        //Log($" :: {i}, {coord.Y1}");
                         grid[i][coord.Y1]++;
                     }
+                    //Log("\n");
                 } else
                 {
-                    // diagonal
 
-                    bool x2Bigger = coord.X2 > coord.X1;
-                    bool y2Bigger = coord.Y2 > coord.Y1;
+                    // dear lord
+                    bool xIncrease = coord.X1 < coord.X2;
+                    bool yIncrease = coord.Y1 < coord.Y2;
 
-                    var maxX = Math.Max(coord.X2, coord.X1);
-                    var minX = Math.Min(coord.X2, coord.X1);
-
-                    for (var i = 0; i < maxX - minX; i++)
+                    if (xIncrease && yIncrease)
                     {
-                        if (x2Bigger && y2Bigger)
-                        {
-                            grid[coord.X1 + i][coord.Y1 + i]++;
-                        }
-                        else if (x2Bigger && !y2Bigger)
-                        {
-                            grid[coord.X1 + i][coord.Y1 - i]++;
-                        }
-                        else if (!x2Bigger && y2Bigger)
-                        {
-                            grid[coord.X1 - i][coord.Y1 + i]++;
-                        }
-                        else
-                        {
-                            grid[coord.X1 - i][coord.Y1 - i]++;
-                        }
+                        var startX = coord.X1;
+                        var startY = coord.Y1;
+                        int count = 0;
+                        int steps = coord.X2 - coord.X1;
 
+                        while (count <= steps)
+                        {
+                            //Log($" :: {startX + count}, {startY + count}");
+                            grid[startX + count][startY + count]++;
+                            count++;
+                        }
                     }
+                    else if (xIncrease && !yIncrease)
+                    {
+                        var startX = coord.X1;
+                        var startY = coord.Y1;
+                        int count = 0;
+                        int steps = coord.X2 - coord.X1;
+
+                        while (count <= steps)
+                        {
+                            //Log($" :: {startX + count}, {startY - count}");
+                            grid[startX + count][startY - count]++;
+                            count++;
+                        }
+                    }
+                    else if (!xIncrease && yIncrease)
+                    {
+                        var startX = coord.X1;
+                        var startY = coord.Y1;
+                        int count = 0;
+                        int steps = coord.X1 - coord.X2;
+
+                        while (count <= steps)
+                        {
+                            //Log($" :: {startX - count}, {startY + count}");
+                            grid[startX - count][startY + count]++;
+                            count++;
+                        }
+                    }
+                    else if (!xIncrease && !yIncrease)
+                    {
+                        var startX = coord.X1;
+                        var startY = coord.Y1;
+                        int count = 0;
+                        int steps = coord.X1 - coord.X2;
+
+                        while (count <= steps)
+                        {
+                            //Log($" :: {startX - count}, {startY - count}");
+                            grid[startX - count][startY - count]++;
+                            count++;
+                        }
+                    } else
+                    {
+                        Log("Missssing");
+                    }
+                    //Log("\n");
                 }
+
             }
 
-            int count = 0;
+            int count2 = 0;
             for (var i = 0; i < grid.Length; i++)
             {
                 for (var j = 0; j < grid[i].Length; j++)
                 {
                     if (grid[i][j] > 1)
                     {
-                        count++;
+                        count2++;
                     }
                 }
             }
 
+            Log($"Answer2: {count2}\n");
+        }
 
-            Log($"Answer2: {count}\n");
+        private void LogCoord(Coord c)
+        {
+            Log($"{c.X1},{c.Y1} -> {c.X2}, {c.Y2}\n");
         }
 
         private void Part1(string[] input)
