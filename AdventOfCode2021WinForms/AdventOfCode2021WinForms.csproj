@@ -91,5 +91,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\data\inputday1_full.txt" />
+    <Content Include="bin\Debug\data\inputday1_simple.txt" />
+    <Content Include="bin\Debug\data\inputday2_full.txt" />
+    <Content Include="bin\Debug\data\inputday2_simple.txt" />
+    <Content Include="bin\Debug\data\inputday3_full.txt" />
+    <Content Include="bin\Debug\data\inputday3_simple.txt" />
+    <Content Include="bin\Debug\data\inputday4_full.txt" />
+    <Content Include="bin\Debug\data\inputday4_simple.txt" />
+    <Content Include="bin\Debug\data\inputday5_full.txt" />
+    <Content Include="bin\Debug\data\inputday5_simple.txt" />
+    <Content Include="bin\Debug\data\inputday6_full.txt" />
+    <Content Include="bin\Debug\data\inputday6_simple.txt" />
+    <Content Include="bin\Debug\data\inputday7_full.txt" />
+    <Content Include="bin\Debug\data\inputday7_simple.txt" />
+    <Content Include="bin\Debug\data\inputday8_full.txt" />
+    <Content Include="bin\Debug\data\inputday8_simple.txt" />
+    <Content Include="bin\Debug\data\inputday9_full.txt" />
+    <Content Include="bin\Debug\data\inputday9_simple.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
