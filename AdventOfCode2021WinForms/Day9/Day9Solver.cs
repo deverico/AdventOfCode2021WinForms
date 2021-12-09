@@ -59,12 +59,12 @@ namespace AdventOfCode2021WinForms.Day9
             List<(int, int, int)> areasWithLocation = new List<(int, int, int)>();
             foreach (var low in lowest)
             {
-                Log($"searching {low.Item1}, at {low.Item2}, {low.Item3}\n", null);
+                //Log($"searching {low.Item1}, at {low.Item2}, {low.Item3}\n", null);
                 int count = 0;
                 var area = GetArea(low, grid, ref count);
                 areas.Add(count);
                 areasWithLocation.Add((count, low.Item2, low.Item3));
-                Log($"finished searching {low.Item1}, at {low.Item2}, {low.Item3}\n", null);
+                //Log($"finished searching {low.Item1}, at {low.Item2}, {low.Item3}\n", null);
             }
 
 
@@ -92,7 +92,7 @@ namespace AdventOfCode2021WinForms.Day9
             }
             Log("\n", null);
             Log($"Lows: {string.Join(", ", areas.Select(x => x.ToString()).ToArray())}\n", null);
-            Log($"Low locations: {string.Join("", areasWithLocation.OrderByDescending(x => x.Item1).Take(3).Select(x => x.Item1.ToString() + $" at {x.Item2}, {x.Item3}\n").ToArray())}\n", null);
+            //Log($"Low locations: {string.Join("", areasWithLocation.OrderByDescending(x => x.Item1).Take(3).Select(x => x.Item1.ToString() + $" at {x.Item2}, {x.Item3}\n").ToArray())}\n", null);
             Log($"Top 3 lows: {string.Join(", ", areas.OrderByDescending(x => x).Take(3).Select(x => x.ToString()).ToArray())}\n", null);
             Log($"Answer2: {areas.OrderByDescending(x => x).Take(3).Aggregate((a, b) => a * b)}\n", null);
         }
@@ -113,13 +113,13 @@ namespace AdventOfCode2021WinForms.Day9
             {
                 case Direction.Up:
                     var up = low.i - 1 >= 0 ? input[low.i - 1][low.j].val : 10;
-                    if (up < 9)// && up == low.val)
+                    if (up < 9)
                     {
                         if (!input[low.i - 1][low.j].covered)
                         {
                             input[low.i - 1][low.j].covered = true;
                             count++;
-                            Log($"UP: from {low.val}, found: { input[low.i - 1][low.j].val}\n", null);
+                            //Log($"UP: from {low.val}, found: { input[low.i - 1][low.j].val}\n", null);
                             GetArea((up, low.i - 1, low.j), input, ref count);
                             
                         }
@@ -127,39 +127,39 @@ namespace AdventOfCode2021WinForms.Day9
                     break;
                 case Direction.Right:
                     var right = low.j + 1 < input[low.i].Length ? input[low.i][low.j + 1].val : 10;                    
-                    if (right < 9)// && right - 1 == low.val)
+                    if (right < 9)
                     {
                         if (!input[low.i][low.j + 1].covered)
                         {
                             input[low.i][low.j + 1].covered = true;
                             count++;
-                            Log($"RIGHT: from {low.val}, found: { input[low.i][low.j + 1].val}\n", null);
+                            //Log($"RIGHT: from {low.val}, found: { input[low.i][low.j + 1].val}\n", null);
                             GetArea((right, low.i, low.j + 1), input, ref count);
                         }
                     }
                     break;
                 case Direction.Down:
                     var down = low.i + 1 < input.Length ? input[low.i + 1][low.j].val : 10;                        
-                    if (down < 9)// && down - 1 == low.val)
+                    if (down < 9)
                     {                        
                         if (!input[low.i + 1][low.j].covered)
                         {
                             input[low.i + 1][low.j].covered = true;
                             count++;
-                            Log($"DOWN: from {low.val}, found: { input[low.i + 1][low.j].val}\n", null);
+                            //Log($"DOWN: from {low.val}, found: { input[low.i + 1][low.j].val}\n", null);
                             GetArea((down, low.i + 1, low.j), input, ref count);
                         }
                     }
                     break;
                 case Direction.Left:                      
                     var left = low.j - 1 >= 0 ? input[low.i][low.j - 1].val : 10;                    
-                    if (left < 9)// && left - 1 == low.val)
+                    if (left < 9)
                     {
                         if (!input[low.i][low.j - 1].covered)
                         {
                             input[low.i][low.j - 1].covered = true;
                             count++;
-                            Log($"LEFT: from {low.val}, found: { input[low.i][low.j - 1].val}\n", null);
+                            //Log($"LEFT: from {low.val}, found: { input[low.i][low.j - 1].val}\n", null);
                             GetArea((left, low.i, low.j - 1), input, ref count);
                         }
                     }
