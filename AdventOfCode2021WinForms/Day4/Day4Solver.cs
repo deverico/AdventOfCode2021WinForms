@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AdventOfCode2021WinForms.Day4
     public class Day4Solver : Solver
     {
 
-        public Day4Solver(Action<string> log) : base(log) { }
+        public Day4Solver(Action<string, Color?> log) : base(log) { }
 
         public void Solve(string[] input)
         {
@@ -111,7 +112,7 @@ namespace AdventOfCode2021WinForms.Day4
             {
                 theSum += row.Where(x => !x.WasCalled).Sum(x => x.Number);
             }
-            Log($"Bingo for grid {currentGrid}, answer: {theSum * winningNumber}!\n");
+            Log($"Bingo for grid {currentGrid}, answer: {theSum * winningNumber}!\n", null);
 
 
         }
@@ -201,7 +202,7 @@ namespace AdventOfCode2021WinForms.Day4
             {
                 theSum += row.Where(x => !x.WasCalled).Sum(x => x.Number);
             }
-            Log($"Bingo for grid {currentGrid}, answer: {theSum * winningNumber}!\n");
+            Log($"Bingo for grid {currentGrid}, answer: {theSum * winningNumber}!\n", null);
         }
     }
 

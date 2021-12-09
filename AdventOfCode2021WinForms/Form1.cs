@@ -27,7 +27,7 @@ namespace AdventOfCode2021WinForms
             InitializeComponent();
             //this.daysListBox.Items.AddRange(Enumerable.Range(1, 25).Select(x => x as object).ToArray());
             LoadClassesAndAddSolvedDays();
-            this.daysListBox.SelectedIndex = 7;
+            this.daysListBox.SelectedIndex = 8;
             this.simpleDataRadioButton.Checked = true;
             //this.fullDataRadioButton.Checked = true;
         }
@@ -35,11 +35,13 @@ namespace AdventOfCode2021WinForms
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.richTextBox1.SuspendLayout();
             string[] input = LoadInput(int.Parse(this.daysListBox.SelectedItem.ToString()));
 
             Type toInstantiate = SolverClasses.Where(x => x.Name == $"Day{int.Parse(this.daysListBox.SelectedItem.ToString())}Solver").First();
-            object theInstance = Activator.CreateInstance(toInstantiate, new object[] { (Action<string>) Log });
+            object theInstance = Activator.CreateInstance(toInstantiate, new object[] { (Action<string, Color?>) Log });
             toInstantiate.GetMethod("Solve").Invoke(theInstance, new object[] { input });
+            this.richTextBox1.ResumeLayout();
         }
 
         public string[] LoadInput(int day)
@@ -65,11 +67,18 @@ namespace AdventOfCode2021WinForms
             return data.ToArray();
         }
 
-        public void Log(string message)
+        public void Log(string message, Color? color = null)
         {
+
             richTextBox1.BeginInvoke(new Action(() =>
             {
-                this.richTextBox1.Text += message;
+                this.richTextBox1.SelectionStart = richTextBox1.TextLength;
+                this.richTextBox1.SelectionLength = 0;
+
+                this.richTextBox1.SelectionColor = color ?? this.richTextBox1.ForeColor;
+                this.richTextBox1.AppendText(message);
+                this.richTextBox1.SelectionColor = this.richTextBox1.ForeColor;
+                //this.richTextBox1.Text += message;
             }));
         }
 

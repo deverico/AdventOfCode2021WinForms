@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AdventOfCode2021WinForms.Day8
     public class Day8Solver : Solver
     {
 
-        public Day8Solver(Action<string> log) : base(log) { }
+        public Day8Solver(Action<string, Color?> log) : base(log) { }
 
         public void Solve(string[] input)
         {
@@ -62,7 +63,7 @@ namespace AdventOfCode2021WinForms.Day8
 
             
 
-            Log($"Answer2 {count}\n");
+            Log($"Answer2 {count}\n", null);
         }
 
         
@@ -109,7 +110,7 @@ namespace AdventOfCode2021WinForms.Day8
                 
             }
 
-            Log($"Answer1 {count}\n");
+            Log($"Answer1 {count}\n", null);
         }
     }
 
@@ -121,8 +122,8 @@ namespace AdventOfCode2021WinForms.Day8
 
 
 
-        Action<string> Log = null;
-        public DigitDisplay(Action<string> log)
+        Action<string, Color?> Log = null;
+        public DigitDisplay(Action<string, Color?> log)
         {
             Log = log;
         }
@@ -150,8 +151,8 @@ namespace AdventOfCode2021WinForms.Day8
 
         public List<char> possibleCharacters = new List<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g' };
 
-        Action<string> Log = null;
-        public Segment(Action<string> log)
+        Action<string, Color?> Log = null;
+        public Segment(Action<string, Color?> log)
         {
             Log = log;
         }

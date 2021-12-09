@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AdventOfCode2021WinForms.Day2
     public class Day2Solver : Solver
     {
 
-        public Day2Solver(Action<string> log) : base(log) {}
+        public Day2Solver(Action<string, Color?> log) : base(log) {}
 
         public void Solve(string[] input)
         {
@@ -17,16 +18,16 @@ namespace AdventOfCode2021WinForms.Day2
 
             int distanceForward = CalculateDistanceForward(data);
             int finalDepth = CalculateFinalDepth(data);
-            Log($"Forward: {distanceForward}, Depth: {finalDepth}\n");
+            Log($"Forward: {distanceForward}, Depth: {finalDepth}\n", null);
 
             int answer1 = distanceForward * finalDepth;
-            Log($"Answer1: {answer1}\n");
+            Log($"Answer1: {answer1}\n", null);
 
 
             (int distanceForward2, int finalDepth2) = Part2(data);
-            Log($"Forward: {distanceForward2}, Depth: {finalDepth2}\n");
+            Log($"Forward: {distanceForward2}, Depth: {finalDepth2}\n", null);
             int answer2 = distanceForward2 * finalDepth2;
-            Log($"Answer2: {answer2}\n");
+            Log($"Answer2: {answer2}\n", null);
         }
 
         private (int, int) Part2(List<Day2DataItem> data)

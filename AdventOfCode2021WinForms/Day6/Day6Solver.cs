@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AdventOfCode2021WinForms.Day6
     public class Day6Solver : Solver
     {
 
-        public Day6Solver(Action<string> log) : base(log) { }
+        public Day6Solver(Action<string, Color?> log) : base(log) { }
 
         public void Solve(string[] input)
         {
@@ -44,7 +45,7 @@ namespace AdventOfCode2021WinForms.Day6
                 daysWithFish[8] += newFish;
             }
 
-            Log($"Answer2 {daysWithFish.Sum()}\n");
+            Log($"Answer2 {daysWithFish.Sum()}\n", null);
         }
 
         private void Part1(string[] input)
@@ -97,7 +98,7 @@ namespace AdventOfCode2021WinForms.Day6
             }
 
 
-            Log($"Answer1 {totalFish}\n");
+            Log($"Answer1 {totalFish}\n", null);
         }
     }
 }

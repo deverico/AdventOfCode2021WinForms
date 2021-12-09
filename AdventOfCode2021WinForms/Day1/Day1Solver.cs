@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AdventOfCode2021WinForms.Day1
     public class Day1Solver : Solver
     {
 
-        public Day1Solver(Action <string> log) : base (log) { }
+        public Day1Solver(Action <string, Color?> log) : base (log) { }
 
         private int WindowSize = 3;
 
@@ -32,8 +33,8 @@ namespace AdventOfCode2021WinForms.Day1
             DetermineIncrease(data);
             Display(data);
 
-            Log($"Answer 1: {data.Where(x => x.increase && !x.isFirst).Count()}\n");
-            Log($"Answer 2: {data.Where(x => x.windowIncrease && !x.isFirst).Count()}\n");
+            Log($"Answer 1: {data.Where(x => x.increase && !x.isFirst).Count()}\n", null);
+            Log($"Answer 2: {data.Where(x => x.windowIncrease && !x.isFirst).Count()}\n", null);
         }
 
         private int[] ParseInput(string[] input)
@@ -59,7 +60,7 @@ namespace AdventOfCode2021WinForms.Day1
             //    Log($"{item.originalDepth} -> {(item.isFirst ? "N/a" : (item.increase ? "increase" : "decrease"))}");
             //}
 
-            Log(sb.ToString());
+            Log(sb.ToString(), null);
         }
 
         public bool IsIncrease(int a, int other)

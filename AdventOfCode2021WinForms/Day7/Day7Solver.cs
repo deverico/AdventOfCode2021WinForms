@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AdventOfCode2021WinForms.Day7
     public class Day7Solver : Solver
     {
 
-        public Day7Solver(Action<string> log) : base(log) { }
+        public Day7Solver(Action<string, Color?> log) : base(log) { }
 
         public void Solve(string[] input)
         {
@@ -27,7 +28,7 @@ namespace AdventOfCode2021WinForms.Day7
 
             if (min != 0)
             {
-                Log("Min is not zero.. loop probably broken\n");
+                Log("Min is not zero.. loop probably broken\n", null);
             }
 
             long[] cost = new long[max - min];
@@ -41,7 +42,7 @@ namespace AdventOfCode2021WinForms.Day7
                 }
             }
 
-            Log($"Answer2 {cost.Min()}\n");
+            Log($"Answer2 {cost.Min()}\n", null);
             
         }
 
@@ -54,7 +55,7 @@ namespace AdventOfCode2021WinForms.Day7
 
             if(min != 0 )
             {
-                Log("Min is not zero.. loop probably broken\n");
+                Log("Min is not zero.. loop probably broken\n", null);
             }
 
             long[] cost = new long[max - min];
@@ -67,7 +68,7 @@ namespace AdventOfCode2021WinForms.Day7
                 }
             }
 
-            Log($"Answer1 {cost.Min()}\n");
+            Log($"Answer1 {cost.Min()}\n", null);
         }
     }
 }

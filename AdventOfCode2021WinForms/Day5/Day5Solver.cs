@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AdventOfCode2021WinForms.Day5
     public class Day5Solver : Solver
     {
 
-        public Day5Solver(Action<string> log) : base(log) { }
+        public Day5Solver(Action<string, Color?> log) : base(log) { }
 
         public void Solve(string[] input) {            
             Part1(input);
@@ -153,7 +154,7 @@ namespace AdventOfCode2021WinForms.Day5
                         }
                     } else
                     {
-                        Log("Missssing");
+                        Log("Missssing", null);
                     }
                     //Log("\n");
                 }
@@ -172,12 +173,12 @@ namespace AdventOfCode2021WinForms.Day5
                 }
             }
 
-            Log($"Answer2: {count2}\n");
+            Log($"Answer2: {count2}\n", null);
         }
 
         private void LogCoord(Coord c)
         {
-            Log($"{c.X1},{c.Y1} -> {c.X2}, {c.Y2}\n");
+            Log($"{c.X1},{c.Y1} -> {c.X2}, {c.Y2}\n", null);
         }
 
         private void Part1(string[] input)
@@ -261,7 +262,7 @@ namespace AdventOfCode2021WinForms.Day5
             }
 
 
-            Log($"Answer1: {count}\n");
+            Log($"Answer1: {count}\n", null);
         }
     }
 

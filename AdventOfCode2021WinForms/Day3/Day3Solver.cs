@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace AdventOfCode2021WinForms.Day3
     public class Day3Solver : Solver
     {
 
-        public Day3Solver(Action<string> log) : base(log) { }
+        public Day3Solver(Action<string, Color?> log) : base(log) { }
 
         public void Solve(string[] input)
         {
@@ -32,11 +33,11 @@ namespace AdventOfCode2021WinForms.Day3
                 }
             }
 
-            Log($"Gamma {gamma}, epsilon {epsilon}\n");
+            Log($"Gamma {gamma}, epsilon {epsilon}\n", null);
             var g = Convert.ToInt32(gamma.ToString(), 2);
             var e = Convert.ToInt32(epsilon.ToString(), 2);             
-            Log($"g={g}, e={e}\n");
-            Log($"Answer1 {g * e}\n");
+            Log($"g={g}, e={e}\n", null);
+            Log($"Answer1 {g * e}\n", null);
 
 
             // part 2
@@ -48,10 +49,10 @@ namespace AdventOfCode2021WinForms.Day3
             var co2 = GetRating(co2List, false);
 
             var oxy = Convert.ToInt32(oxygen.ToString(), 2);
-            Log($"Oxy: {oxygen}, {oxy}\n");
+            Log($"Oxy: {oxygen}, {oxy}\n", null);
             var co22 = Convert.ToInt32(co2.ToString(), 2);
-            Log($"Co2: {co2}, {co22}\n");
-            Log($"Answer2 {oxy * co22}\n");
+            Log($"Co2: {co2}, {co22}\n", null);
+            Log($"Answer2 {oxy * co22}\n", null);
 
         }
 
