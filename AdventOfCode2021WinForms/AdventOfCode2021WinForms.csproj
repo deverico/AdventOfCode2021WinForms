@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Day10\Day10Solver.cs" />
     <Compile Include="Day1\DataItem.cs" />
     <Compile Include="Day1\Day1Solver.cs" />
     <Compile Include="Day2\Day2DataItem.cs" />
@@ -92,6 +93,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\data\inputday10_full.txt" />
+    <Content Include="bin\Debug\data\inputday10_simple.txt" />
     <Content Include="bin\Debug\data\inputday1_full.txt" />
     <Content Include="bin\Debug\data\inputday1_simple.txt" />
     <Content Include="bin\Debug\data\inputday2_full.txt" />

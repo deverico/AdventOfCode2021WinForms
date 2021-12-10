@@ -27,7 +27,7 @@ namespace AdventOfCode2021WinForms
             InitializeComponent();
             //this.daysListBox.Items.AddRange(Enumerable.Range(1, 25).Select(x => x as object).ToArray());
             LoadClassesAndAddSolvedDays();
-            this.daysListBox.SelectedIndex = 8;
+            this.daysListBox.SelectedIndex = 9;
             this.simpleDataRadioButton.Checked = true;
             //this.fullDataRadioButton.Checked = true;
         }
