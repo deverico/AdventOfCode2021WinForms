@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Day10\Day10Solver.cs" />
     <Compile Include="Day11\Day11Solver.cs" />
+    <Compile Include="Day12\Day12Solver.cs" />
     <Compile Include="Day1\DataItem.cs" />
     <Compile Include="Day1\Day1Solver.cs" />
     <Compile Include="Day2\Day2DataItem.cs" />
@@ -98,6 +99,8 @@
     <Content Include="bin\Debug\data\inputday10_simple.txt" />
     <Content Include="bin\Debug\data\inputday11_full.txt" />
     <Content Include="bin\Debug\data\inputday11_simple.txt" />
+    <Content Include="bin\Debug\data\inputday12_full.txt" />
+    <Content Include="bin\Debug\data\inputday12_simple.txt" />
     <Content Include="bin\Debug\data\inputday1_full.txt" />
     <Content Include="bin\Debug\data\inputday1_simple.txt" />
     <Content Include="bin\Debug\data\inputday2_full.txt" />
